@@ -35,7 +35,9 @@ We will start by creating a New Resource Group. From the Azure Portal home page,
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>Click on Create resource group.</p>
+<p>
+  Click on Create resource group.
+</p>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -43,7 +45,10 @@ We will start by creating a New Resource Group. From the Azure Portal home page,
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>After the validation process has passed, click on Create.</p><p>
+<p>
+  After the validation process has passed, click on Create.
+</p>
+<p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
@@ -53,7 +58,24 @@ Now that a Resource Group has been created, we will now create a Windows 10 VM. 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>Click on Create dropdown button and select Azure virtual machine. </p>
+<p>
+  Click on Create dropdown button and select Azure virtual machine. 
+</p>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+For Resource group, select the RG-Azure-Basics resource group. For Virtual machine name, we will use "VM1". For Region, select the appropriate region. In this tutorial we will select "(US) West US 3". For Image, select the Windows 10 Pro version.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+For Size, select "Standard_E2s_v3 - 2 vcpus, 16 GiB memory ($91.98)" which is recommended by the image publisher. If the option does not appear on the bdropdown menu, click on See all sizes to find and select the proper option. Under Administrator account, enter a username. In this tutorial, we will use "labuser". Then enter a password that satisfies the requirements. Under Licensing, check the box saying "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights." Click on Next: Disks >. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  
 </p>
