@@ -110,3 +110,55 @@ After the final validation process has passed, click on Create.
 <p>
   For Resource group, select the previously created RG-Azure-Basics resource group. For Virtual machine name, we will use "VM2". For Region, select the same region used for the Windows 10 VM. In this tutorial, we used "(US) West US 3". For Image, select "Ubuntu Server 20.04 LTS - x64 Gen2".
 </p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  For Authentication type, select Password. In this tutorial, we will use the same username and password as the one used in the Windows 10 VM. Click on Next : Disks >.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We will use the default Disks configuration for this VM. Click on Next : Networking >.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  For Virtual network, select the VM1-vnet network used for the Windows 10 VM. Both our Windows and Ubuntu VMs will occupy the same subnet. For Public IP, if none has been created, click on Create new and use the name "VM2-ip". Click on Review + create.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  After the final validation process has passed, click on Create. 
+</p>
+<p>
+  Now we'll wait for our newly created Ubuntu VM to be deployed.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  After the Ubuntu VM has been deployed, nagivate to Virtual Machines using the search bar.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We have successfully created our Windows 10 and Ubuntu VMs. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We see that a NetworkWatcherRG resource group has been automatically created. We will use this resource group to observe the Virtual Network made up of our VMs. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<br/>
+
+**Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark.**
+
