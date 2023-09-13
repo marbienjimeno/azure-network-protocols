@@ -21,7 +21,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>High-Level Steps</h2>
 
 - Step 1: Create a Resource Group. Then, create a Windows 10 Virtual Machine (VM) and a Linux Ubuntu VM using the previously created Resource Group. We will observe the Virtual Network within the Network Watcher. 
-- Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark.
+- Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark. Configure the Ubuntu VM's Network Security Group to disable incoming ICMP traffic and observe the results in Wireshark.
 - Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.
 - Step 4: Perform the nslookup command to get the IP addresses of google.com and disney.com from a DNS server. Observe the dns traffic in Wireshark.
 - Step 5: Filter for RDP traffic only. Observe and evaluate the RDP traffic in Wireshark. 
@@ -95,7 +95,7 @@ After the final validation process has passed, click on Create.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p> 
 <p>
-  We will now ait until the Windows 10 VM installation is complete before moving to the next step. 
+  We will now wait until the Windows 10 VM installation is complete before moving to the next step. 
 </p>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -160,7 +160,7 @@ After the final validation process has passed, click on Create.
 </p> 
 <br/>
 
-**Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark.**
+**Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark. Configure the Ubuntu VM's Network Security Group to disable incoming ICMP traffic and observe the results in Wireshark.**
 <p>
   Now, we will use Remote Desktop to access our Windows 10 VM. Navigate to the Remote Desktop by searching "Remote Desktop" in the host system's Windows searchbar. 
 </p>
@@ -248,3 +248,72 @@ After the final validation process has passed, click on Create.
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p> 
+<p>
+  After identifying our Ubuntu VM's private address, perform the ping command on this address using the Windows VM's Powershell. In this tutorial, we will enter the command "ping 10.0.0.5".
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We see that the our Windows VM was successfully able to ping our Ubuntu VM. Inside Wireshark, we are able to observe the ICMP traffic between the two VMs. We see the four ICMP requests sent by our Windows VM and the four ICMP replies following each ICMP requests coming from our Ubuntu VM. With this, we are able to confirm network connectivity between the two VMs.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  Now, we will try pinging google.com from our Windows VM. Inside Powershell, enter the command "ping www.google.com -4". The "-4" flag will force the command to use google.com's IPv4 address.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We see the the ping commands were successful. Inside Wireshark, we can observe the the ICMP requests of our Window's VM being sent to google.com's IPv4 address, as well as google.com's ICMP replies directly after each ICMP requests. With this, we can confirm network connectivity between our Windows VM and google.com.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Now, we will configure the Network Security Group of our Ubuntu VM to disable incoming ICMP traffic. We will start by sending continuous pings from our Windows VM to the Ubuntu VM. In Powershell, enter the command "ping 10.0.0.5 -t". The "-t" flag will tell the Windows VM to continuously send pings. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Back in the Azure Portal home page, navigate to Network security groups and select VM2-nsg.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Under Settings, go to Inbound security rules and click on Add to add an inbound security rule.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  For Protocol, select ICMP. For Action, select Deny. For Priority, enter "200" to place this security rule over other existing rules. For Name, we will name this security rule "Deny-Inbound-ICMP". Click Add. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  After the new security rule has been set, return to our Windows VM. We see that the continuous pings are now timing out. In Wireshark, we observe that the ICMP requests are still being sent to our Ubuntu VM but there is no longer any replies. We can confirm that the inbound security rule we set preventing inbound ICMP traffic to our Ubuntu VM is in effect. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  We will now edit the Deny-Inbound-ICMP rule to allow inbound ICMP traffic. Back in Azure, click on Deny-Inbound-ICMP. For Action, select Allow. Click Save. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Back in Powershell inside our Windows VM, we see that the pings are once again successful. In Wireshark, we can observe that our Ubuntu VM is now returning ICMP replies to our Windows VM's ICMP requests. We can confirm that the edit we made on our Ubuntu VM's security rule is in effect. Press Ctrl+C in Powershell to stop the continuous pings. 
+</p>
+<br/>
+
+**Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.**
+<p>
+  
+</p>
