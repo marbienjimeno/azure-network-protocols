@@ -100,3 +100,13 @@ After the final validation process has passed, click on Create.
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p> 
+<br/>
+<p>
+  After the Windows 10 VM has completed its installation, we will now install an Ubuntu VM. Click on Create another VM. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  For Resource group, select the previously created RG-Azure-Basics resource group. For Virtual machine name, we will use "VM2". For Region, select the same region used for the Windows 10 VM. In this tutorial, we used "(US) West US 3". For Image, select "Ubuntu Server 20.04 LTS - x64 Gen2".
+</p>
