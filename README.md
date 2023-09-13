@@ -77,5 +77,26 @@ For Size, select "Standard_E2s_v3 - 2 vcpus, 16 GiB memory ($91.98)" which is re
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-  
+  We will keep the default settings for Disks. Click on Next : Networking >
 </p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+For Virtual network, a new VM1-vnet has been created. For Subnet, the default 10.0.0.0/24 subnet has been assigned. For Public IP, VM1-ip has been configured by default. Click on Review + create. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+After the final validation process has passed, click on Create. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We will now ait until the Windows 10 VM installation is complete before moving to the next step. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
