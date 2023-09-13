@@ -126,7 +126,7 @@ After the final validation process has passed, click on Create.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p> 
 <p>
-  For Virtual network, select the VM1-vnet network used for the Windows 10 VM. Both our Windows and Ubuntu VMs will occupy the same subnet. For Public IP, if none has been created, click on Create new and use the name "VM2-ip". Click on Review + create.
+  For Virtual network, select the VM1-vnet network used for the Windows 10 VM. Both our Windows and Ubuntu VMs will occupy the same subnet VM1-vnet. For Public IP, if none has been created, click on Create new and use the name "VM2-ip". Click on Review + create.
 </p>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -161,4 +161,90 @@ After the final validation process has passed, click on Create.
 <br/>
 
 **Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark.**
-
+<p>
+  Now, we will use Remote Desktop to access our Windows 10 VM. Navigate to the Remote Desktop by searching "Remote Desktop" in the host system's Windows searchbar. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We will need to enter the public IP address of our Windows 10 VM. To find the IP address, navigate to Virtual machines from the Azure Portal home page and select VM1.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  Copy and paste VM1's public IP address onto Remote Desktop Connection and click on Connect.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  To enter the credential we set up on Azure, click on More choices and select Use a different account. Then enter the username and password we assigned in Azure.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  A window will pop up warning that VM1 remote computer does not have proper certificates. Click on Yes to connect despite these certificate errors. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  Our Windows 10 VM will now begin starting up. When the privacy settings window appears, flip the switches to No on all settings and click Accept. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We will need to install Wireshark to start inspecting network traffic. Go to the Microsoft Edge browser. When prompted to sign in into Microsoft Edge, click on Start without your data. Click on Continue without this data. Click on Confirm and continue. Finally, click on Confirm and start browsing.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  Search "wireshark download" on the browser search bar and go to the Wireshark - Download link.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  In the Wireshark website download page, click on Windows x64 Installer. Once the Wireshark download executive has downloaded, open the file to begin the setup wizard. 
+</p>
+<p>
+  We will use the default options provided by the setup wizard. Once the installation has finished, navigate to the Wireshark app using the the Windows VM search bar. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  Double-click Ethernet to start observing the VM's network traffic. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We should begin to see the various network traffic occurring while we are in our remote desktop connection. We will start by filtering for only ICMP traffic by entering "icmp" in the display filter. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We see that there is currently no ICMP traffic being sent through the virtual network. To prompt ICMP connections, we will use the ping command. Search "powershell" and open Powershell.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
+<p>
+  We will start by pinging our Ubuntu VM using its private IP address. To find it, from the Azure Portal home page  , navigate to Virtual machines and select VM2.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p> 
