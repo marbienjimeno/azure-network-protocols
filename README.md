@@ -390,5 +390,5 @@ After the final validation process has passed, click on Create.
 
 **Conclusion**
 <p>
-  This concludes this tutorial on how to observe Azure network protocols. We created two Azure VMs and observed virtual network traffic using Wireshark. 
+  This concludes this tutorial on how to observe Azure network protocols. In this tutorial, we created two Azure VMs and observed various types of virtual network traffic using Wireshark. 
 </p>
