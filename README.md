@@ -35,34 +35,42 @@ We will start by creating a New Resource Group. From the Azure Portal home page,
 </p>
 
 ![go_to_resource_group](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/876d559a-49d9-4737-9aa9-46895ffa83ad)
+
 <p>
   Click on Create resource group.
 </p>
 
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/379195e6-d62d-4873-a41f-60c021d9b2ee)
-<p>Enter a Resource group name. In this tutorial, we will use "RG-Azure-Basics". Click on Review + create.</p>
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  Enter a Resource group name. In this tutorial, we will use "RG-Azure-Basics". For Region, select the region that most applies. In this tutorial, we will select (US) West US 3. Click on Review + create.
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9a36f04c-d1ad-4fae-80fa-6c557b788050)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/239037ad-82eb-4682-a9f9-72c02e95b5a7)
+
 <p>
   After the validation process has passed, click on Create.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ab087d88-27d3-484f-a95b-d743c863d20b)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ad59cff9-25be-4d1b-918e-59a165e16a5b)
+
 <br />
 <p>
 Now that a Resource Group has been created, we will now create a Windows 10 VM. Enter "virtual machines" in the search bar and go to Virtual machines. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/1ae8aac9-6bbd-4e43-85e3-2ea082effc5a)
+
 <p>
   Click on Create dropdown button and select Azure virtual machine. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2625a52b-7313-4460-b4a7-85924b12be68)
+
 <p>
 For Resource group, select the RG-Azure-Basics resource group. For Virtual machine name, we will use "VM1". For Region, select the appropriate region. In this tutorial we will select "(US) West US 3". For Image, select the Windows 10 Pro version.
 </p>
