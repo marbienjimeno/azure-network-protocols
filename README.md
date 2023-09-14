@@ -333,7 +333,7 @@ After the final validation process has passed, click on Create.
 
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2b8a809c-87c1-4f1b-b730-fa1e44307bd6)
 
-![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/258aaccd-c6d7-4454-a289-bef1dbf50a0a)
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/6e8c314e-bd51-4b76-a021-1cdfa5f5ca32)
 
 <p>
   We will now edit the Deny-Inbound-ICMP rule to allow inbound ICMP traffic. Back in Azure, click on Deny-Inbound-ICMP. For Action, select Allow. Click Save. 
