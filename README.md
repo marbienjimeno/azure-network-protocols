@@ -33,15 +33,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <p>
 We will start by creating a New Resource Group. From the Azure Portal home page, go to Resource groups. 
 </p>
-
 ![go_to_resource_group](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/876d559a-49d9-4737-9aa9-46895ffa83ad)
-
 <p>
   Click on Create resource group.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/379195e6-d62d-4873-a41f-60c021d9b2ee)
 <p>Enter a Resource group name. In this tutorial, we will use "RG-Azure-Basics". Click on Review + create.</p>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
