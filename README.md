@@ -353,74 +353,82 @@ After the final validation process has passed, click on Create.
 
 **Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.**
 <p>
-  We will now observe SSH traffic between our VMs in Wireshark. To begin, enter "ssh" into the Wireshark display filter. We will then ssh into our Ubuntu VM from our Windows VM. In Powershell inside our Windows VM, enter "ssh labuser@10.0.0.5" and enter your password. 
+  We will now observe SSH traffic between our VMs in Wireshark. To begin, enter "ssh" into the Wireshark display filter. We will then ssh into our Ubuntu VM from our Windows VM. In Powershell inside our Windows VM, enter "ssh labuser@10.0.0.5". 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/510d21b2-7b90-4be7-921c-3c51b4cbdb7a)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/c6a05a18-8e01-4437-afbc-ee8e3efbf533)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  In Wireshark, we begin to see SSH traffic betweem our VMs as we attempt to ssh into our Ubuntu VM. In Powershell, a warning might appear regarding the authenticity of the Ubuntu host. Enter "yes" to continue. Enter your password
 </p>
-<p>
-  In Wireshark, we begin to see SSH traffic betweem our VMs as we attempt to ssh into our Ubuntu VM. In Powershell, a warning might appear regarding the authenticity of the Ubuntu host. Enter "yes" to continue. 
-</p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/d15a46b8-d04d-4f45-840c-009741029165)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/7ea733f4-1805-438f-9fcc-54e3c98a44e3)
+
 <p>
   We see that our hostname has changed to labuser@VM2, indicating that we have successfully connected into our Ubuntu VM. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/1c5a3fcd-0f6a-46c2-a9f3-026ca71af7f2)
+
 <p>
   Now, we will try some Linux commands through our SSH connection. Enter the following commands one by one: "id", "uname -a", and "ls -lasth". We can observe SSH traffic activity in Wireshark as we enter the commands. once finished, we can terminate the ssh connection by entering "exit" in the Powershell command line.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/116de2ab-10bb-425d-b4f5-b3d97a13d0dd)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ef8bd4bd-4646-49b7-afbb-309bb4535c12)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/7eea5fa7-7c96-484c-8716-331e04e3f3fa)
+
 <br/>
 
 **Step 4: Issue a new IP address for the Windows 10 VM. Observe the resulting DHCP traffic in Wireshark.** 
 <p>
   We will now observe for DCHP traffic. We will invoke DHCP traffic by attempting to issue a new IP address for our Windows WM. DHCP stands for "Domain Host Configuration Protocol" and is in charge of assigning IP addresses for all machines in our network. Enter "dhcp" into the Wireshark display filter. In Powershell, enter the command "ipconfig /renew" to prompt the DHCP to assign our Windows VM a new IP address. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/d2d257bb-d4ca-4729-adb3-1b9c969f0ab9)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/0aafa1c0-3df4-4511-9829-53c496ee82bc)
+
 <p>
   After running the command, we can observe network activity between our Windows VM and th DCHP server.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/3bdd735c-a9ae-497c-b0ca-8f0d849b4ec3)
+
 <br/>
 
 **Step 5: Perform the nslookup command to get the IP addresses of google.com and disney.com from a DNS server. Observe the dns traffic in Wireshark.**
 <p>
   Now we will observe for DNS traffic. Enter "dns" into the Wireshark display filter. We see that Wireshark has already detected DNS traffic in our network. Clear the captured packets and Continue without Saving.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/7c5b3542-9e06-407b-8f22-1302cc5d632e)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/113b36b5-1aa2-42be-934c-2e008d1cb237)
+
 <p>
   The DNS server is in charge of storing the IP addresses of domain names. In Powershell, enter "nslookup www.google.com" to get the IP addresses of google.com from the DNS server. Also perform "nslookup www.disney.com" to get the IP adddress of disney.com. We successfully get the IP addresses of google.com and disney.com. In Wireshark, we can also observe the DNS traffic between the Windows VM and the DNS server.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/05d68d01-a008-4827-a97a-a7a00715bfdb)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/5bc5eb94-2de4-44e3-afe8-824280c5db25)
+
 <br/>
 
 **Step 6: Filter for RDP traffic only. Observe and evaluate the RDP traffic in Wireshark.**
 <p>
   For our last step, we will observe for RDP traffic. Enter "tcp.port == 3389" into the Wireshark display filter to display RDP traffic. We see that the RDP traffic in our virtual network is active. This makes sense because we are employing RDP as we connect to our Windows 10 VM using Remote Desktop. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ef360277-2f82-4910-8293-935a82e080a0)
+
 
 **Conclusion**
 <p>
