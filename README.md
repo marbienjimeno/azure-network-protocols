@@ -23,8 +23,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Step 1: Create a Resource Group. Then, create a Windows 10 Virtual Machine (VM) and a Linux Ubuntu VM using the previously created Resource Group. We will observe the Virtual Network within the Network Watcher. 
 - Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark. Configure the Ubuntu VM's Network Security Group to disable incoming ICMP traffic and observe the results in Wireshark.
 - Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.
-- Step 4: Perform the nslookup command to get the IP addresses of google.com and disney.com from a DNS server. Observe the dns traffic in Wireshark.
-- Step 5: Filter for RDP traffic only. Observe and evaluate the RDP traffic in Wireshark. 
+- Step 4: Issue a new IP address for the Windows 10 VM. Observe the resulting DHCP traffic in Wireshark. 
+- Step 5: Perform the nslookup command to get the IP addresses of google.com and disney.com from a DNS server. Observe the dns traffic in Wireshark.
+- Step 6: Filter for RDP traffic only. Observe and evaluate the RDP traffic in Wireshark. 
 
 <h2>Actions and Observations</h2>
 
@@ -311,9 +312,83 @@ After the final validation process has passed, click on Create.
 <p>
   Back in Powershell inside our Windows VM, we see that the pings are once again successful. In Wireshark, we can observe that our Ubuntu VM is now returning ICMP replies to our Windows VM's ICMP requests. We can confirm that the edit we made on our Ubuntu VM's security rule is in effect. Press Ctrl+C in Powershell to stop the continuous pings. 
 </p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
 <br/>
 
 **Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.**
 <p>
-  
+  We will now observe SSH traffic between our VMs in Wireshark. To begin, enter "ssh" into the Wireshark display filter. We will then ssh into our Ubuntu VM from our Windows VM. In Powershell inside our Windows VM, enter "ssh labuser@10.0.0.5" and enter your password. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  In Wireshark, we begin to see SSH traffic betweem our VMs as we attempt to ssh into our Ubuntu VM. In Powershell, a warning might appear regarding the authenticity of the Ubuntu host. Enter "yes" to continue. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  We see that our hostname has changed to labuser@VM2, indicating that we have successfully connected into our Ubuntu VM. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Now, we will try some Linux commands through our SSH connection. Enter the following commands one by one: "id", "uname -a", and "ls -lasth". We can observe SSH traffic activity in Wireshark as we enter the commands. once finished, we can terminate the ssh connection by entering "exit" in the Powershell command line.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br/>
+
+**Step 4: Issue a new IP address for the Windows 10 VM. Observe the resulting DHCP traffic in Wireshark.** 
+<p>
+  We will now observe for DCHP traffic. We will invoke DHCP traffic by attempting to issue a new IP address for our Windows WM. DHCP stands for "Domain Host Configuration Protocol" and is in charge of assigning IP addresses for all machines in our network. Enter "dhcp" into the Wireshark display filter. In Powershell, enter the command "ipconfig /renew" to prompt the DHCP to assign our Windows VM a new IP address. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  After running the command, we can observe network activity between our Windows VM and th DCHP server.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br/>
+
+**Step 5: Perform the nslookup command to get the IP addresses of google.com and disney.com from a DNS server. Observe the dns traffic in Wireshark.**
+<p>
+  Now we will observe for DNS traffic. Enter "dns" into the Wireshark display filter. We see that Wireshark has already detected DNS traffic in our network. Clear the captured packets and Continue without Saving.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  The DNS server is in charge of storing the IP addresses of domain names. In Powershell, enter "nslookup www.google.com" to get the IP addresses of google.com from the DNS server. Also perform "nslookup www.disney.com" to get the IP adddress of disney.com. We successfully get the IP addresses of google.com and disney.com. In Wireshark, we can also observe the DNS traffic between the Windows VM and the DNS server.
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<br/>
+
+**Step 6: Filter for RDP traffic only. Observe and evaluate the RDP traffic in Wireshark.**
+<p>
+  For our last step, we will observe for RDP traffic. Enter "tcp.port == 3389" into the Wireshark display filter to display RDP traffic. We see that the RDP traffic in our virtual network is active. This makes sense because we are employing RDP as we connect to our Windows 10 VM using Remote Desktop. 
+</p>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+
+**Conclusion**
+<p>
+  This concludes this tutorial on how to observe Azure network protocols. We created two Azure VMs and observed virtual network traffic using Wireshark. 
 </p>
