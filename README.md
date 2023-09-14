@@ -302,44 +302,56 @@ After the final validation process has passed, click on Create.
 <p>
   Now, we will configure the Network Security Group of our Ubuntu VM to disable incoming ICMP traffic. We will start by sending continuous pings from our Windows VM to the Ubuntu VM. In Powershell, enter the command "ping 10.0.0.5 -t". The "-t" flag will tell the Windows VM to continuously send pings. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/fc976132-c49d-4d9f-8a0b-ce4ed391b5cb)
+
 <p>
   Back in the Azure Portal home page, navigate to Network security groups and select VM2-nsg.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/5f9586c2-8656-45d4-abe5-c8359e957fd3)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/4782df30-bbe8-4182-b30f-95b2e383e24d)
+
 <p>
   Under Settings, go to Inbound security rules and click on Add to add an inbound security rule.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/6d4eee99-cfd6-4c63-8e2d-2454ebb81a84)
+
 <p>
   For Protocol, select ICMP. For Action, select Deny. For Priority, enter "200" to place this security rule over other existing rules. For Name, we will name this security rule "Deny-Inbound-ICMP". Click Add. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2c38f4ad-e3e5-4c17-8066-a33f1ad76369)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/bc0b38df-6f55-46cf-a612-8db252072b5a)
+
 <p>
   After the new security rule has been set, return to our Windows VM. We see that the continuous pings are now timing out. In Wireshark, we observe that the ICMP requests are still being sent to our Ubuntu VM but there is no longer any replies. We can confirm that the inbound security rule we set preventing inbound ICMP traffic to our Ubuntu VM is in effect. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2b8a809c-87c1-4f1b-b730-fa1e44307bd6)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/258aaccd-c6d7-4454-a289-bef1dbf50a0a)
+
 <p>
   We will now edit the Deny-Inbound-ICMP rule to allow inbound ICMP traffic. Back in Azure, click on Deny-Inbound-ICMP. For Action, select Allow. Click Save. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/81fb378d-2b46-4d93-8096-10b1e0f1767c)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/badc908d-2131-4854-a2ea-fe5f93adb52f)
+
 <p>
   Back in Powershell inside our Windows VM, we see that the pings are once again successful. In Wireshark, we can observe that our Ubuntu VM is now returning ICMP replies to our Windows VM's ICMP requests. We can confirm that the edit we made on our Ubuntu VM's security rule is in effect. Press Ctrl+C in Powershell to stop the continuous pings. 
 </p>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ae26d927-df34-4936-9199-182d82eed3df)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/6bdda939-3e76-4de9-964d-3cc24d172dcb)
+
 </p>
 <br/>
 
