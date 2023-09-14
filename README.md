@@ -182,36 +182,37 @@ After the final validation process has passed, click on Create.
 <p>
   Now, we will use Remote Desktop to access our Windows 10 VM. Navigate to the Remote Desktop by searching "Remote Desktop" in the host system's Windows searchbar. 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/a6fc5ab5-29b5-4e74-bf7d-c286503930e1)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  We will need to enter the public IP address of our Windows 10 VM. To find the IP address, navigate to Virtual machines from the Azure Portal home page and select VM1.
+  We will need to enter the public IP address of our Windows 10 VM. To find the IP address, hover over Virtual machines from the Azure Portal home page and select VM1.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/7770de2a-fa46-4bd4-b4e8-52e5819b8bd7)
+
 <p>
   Copy and paste VM1's public IP address onto Remote Desktop Connection and click on Connect.
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/712f1f6d-d181-4f67-9d31-6d95575c1079)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/87cd9af2-e646-474e-85fc-aded11ab51ef)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  To enter the credential we set up on Azure, click on More choices and select Use a different account. Then enter the username and password we assigned in Azure.
+  To enter the credential we set up on Azure, click on More choices and select Use a different account. Then enter the username and password we assigned in Azure. Click OK.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9460fde7-1808-4dec-8728-12a7f85463ed)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/5515df4a-d48d-4d9a-a587-3e0c4acc0243)
+
 <p>
   A window will pop up warning that VM1 remote computer does not have proper certificates. Click on Yes to connect despite these certificate errors. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/80c5dd90-fa88-496f-950f-7bb1c6c3fc55)
+
 <p>
   Our Windows 10 VM will now begin starting up. When the privacy settings window appears, flip the switches to No on all settings and click Accept. 
 </p>
