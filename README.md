@@ -74,97 +74,108 @@ Now that a Resource Group has been created, we will now create a Windows 10 VM. 
 <p>
 For Resource group, select the RG-Azure-Basics resource group. For Virtual machine name, we will use "VM1". For Region, select the appropriate region. In this tutorial we will select "(US) West US 3". For Image, select the Windows 10 Pro version.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/c1a1b5bb-8792-4957-ab48-3ddd89e22935)
+
 <p>
 For Size, select "Standard_E2s_v3 - 2 vcpus, 16 GiB memory ($91.98)" which is recommended by the image publisher. If the option does not appear on the bdropdown menu, click on See all sizes to find and select the proper option. Under Administrator account, enter a username. In this tutorial, we will use "labuser". Then enter a password that satisfies the requirements. Under Licensing, check the box saying "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights." Click on Next: Disks >. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/541962b5-bab7-40bc-9717-a42325ccf4f2)
+
 <p>
   We will keep the default settings for Disks. Click on Next : Networking >
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/bbfbd5fa-f66a-494e-b31c-47fdc69e72a1)
+
 <p>
 For Virtual network, a new VM1-vnet has been created. For Subnet, the default 10.0.0.0/24 subnet has been assigned. For Public IP, VM1-ip has been configured by default. Click on Review + create. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/b1e5af17-54d9-45e5-8364-0a30f5dd0740)
+<br />
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/3e3efa47-aac1-4ff0-bbfa-8df191590408)
+
 <p>
 After the final validation process has passed, click on Create. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/a11d1a31-94f5-49ea-b53e-7f97a56f9cf2)
+<br />
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/11c9e56c-054c-4846-8b75-917545af5e75)
+
 <p>
   We will now wait until the Windows 10 VM installation is complete before moving to the next step. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+ ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/727e04c9-f401-4588-a249-8533ee234af2)
+
 <br/>
 <p>
   After the Windows 10 VM has completed its installation, we will now install an Ubuntu VM. Click on Create another VM. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/fca009fa-de52-4b3b-9c52-6aa90010d6c0)
+
 <p>
   For Resource group, select the previously created RG-Azure-Basics resource group. For Virtual machine name, we will use "VM2". For Region, select the same region used for the Windows 10 VM. In this tutorial, we used "(US) West US 3". For Image, select "Ubuntu Server 20.04 LTS - x64 Gen2".
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2721265f-7a87-4bbc-8d41-e41a4844aa16)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  For Authentication type, select Password. In this tutorial, we will use the same username and password as the one used in the Windows 10 VM. Click on Next : Disks >.
+  For Size, select "Standard_E2s_v3 - 2 vcpus, 16 GiB memory ($91.98)". For Authentication type, select Password. In this tutorial, we will use the same username and password as the one used in the Windows 10 VM. Click on Next : Disks >.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/f4f6e6eb-e644-45e7-b638-41abb434f050)
+
 <p>
   We will use the default Disks configuration for this VM. Click on Next : Networking >.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9569250e-3d65-430b-b4c8-28b94ac7070e)
+
 <p>
   For Virtual network, select the VM1-vnet network used for the Windows 10 VM. Both our Windows and Ubuntu VMs will occupy the same subnet VM1-vnet. For Public IP, if none has been created, click on Create new and use the name "VM2-ip". Click on Review + create.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/d1ecbe47-ee2b-406a-a128-8f9579182a84)
+<br />
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/527c5890-8f94-4e9a-ad78-cfff9b8a4af6)
+
 <p>
   After the final validation process has passed, click on Create. 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ab1a3a6e-5c70-4a80-b5f2-e02388e0de1f)
+<br />
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/5ff9b16d-ad66-42db-b06a-6ae56e687ce2)
+
 <p>
   Now we'll wait for our newly created Ubuntu VM to be deployed.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/62ec77d2-d52a-484e-ba56-42f5fd4efa45)
+
 <p>
   After the Ubuntu VM has been deployed, nagivate to Virtual Machines using the search bar.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/a492fc1b-320c-4fdc-b702-3f9650409a6b)
+
 <p>
   We have successfully created our Windows 10 and Ubuntu VMs. 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/6d2bb951-0f5e-42ce-a122-00a112f4ccc4)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  We see that a NetworkWatcherRG resource group has been automatically created. We will use this resource group to observe the Virtual Network made up of our VMs. 
+  In Resource groups, we see that a NetworkWatcherRG resource group has been automatically created. We will use this resource group to observe the Virtual Network made up of our VMs. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/460f81e5-964e-4d08-9907-0e8d1f3f3b2d)
+
 <br/>
 
 **Step 2: Use Remote Desktop to connect to the Windows 10 VM and install Wireshark on the VM. Perform ping commands and observe ICMP traffic using Wireshark. Configure the Ubuntu VM's Network Security Group to disable incoming ICMP traffic and observe the results in Wireshark.**
