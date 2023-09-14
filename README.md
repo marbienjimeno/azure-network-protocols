@@ -33,9 +33,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <p>
 We will start by creating a New Resource Group. From the Azure Portal home page, go to Resource groups. 
 </p>
-<p>
-  ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2f7274e4-6b14-45e7-8d9f-6d25efae62cf
-</p>
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/2f7274e4-6b14-45e7-8d9f-6d25efae62cf
 <p>
   Click on Create resource group.
 </p>
