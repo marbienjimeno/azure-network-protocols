@@ -47,7 +47,7 @@ We will start by creating a New Resource Group. From the Azure Portal home page,
 </p>
 
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9a36f04c-d1ad-4fae-80fa-6c557b788050)
-
+<br/>
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/239037ad-82eb-4682-a9f9-72c02e95b5a7)
 
 <p>
@@ -55,7 +55,7 @@ We will start by creating a New Resource Group. From the Azure Portal home page,
 </p>
 
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ab087d88-27d3-484f-a95b-d743c863d20b)
-
+<br/>
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ad59cff9-25be-4d1b-918e-59a165e16a5b)
 
 <br />
