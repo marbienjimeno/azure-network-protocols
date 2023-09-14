@@ -344,13 +344,11 @@ After the final validation process has passed, click on Create.
 <p>
   Back in Powershell inside our Windows VM, we see that the pings are once again successful. In Wireshark, we can observe that our Ubuntu VM is now returning ICMP replies to our Windows VM's ICMP requests. We can confirm that the edit we made on our Ubuntu VM's security rule is in effect. Press Ctrl+C in Powershell to stop the continuous pings. 
 </p>
-<p>
 
 ![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ae26d927-df34-4936-9199-182d82eed3df)
 
-![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/6bdda939-3e76-4de9-964d-3cc24d172dcb)
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ee2f6241-fcda-4937-ba1e-9189595dd187)
 
-</p>
 <br/>
 
 **Step 3: From the Windows 10 VM, use the ssh command to connect into the Ubuntu VM. Perform different commands on the ssh linux connection and observe the SSH traffic on Wireshark.**
