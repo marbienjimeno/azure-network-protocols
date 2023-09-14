@@ -216,81 +216,89 @@ After the final validation process has passed, click on Create.
 <p>
   Our Windows 10 VM will now begin starting up. When the privacy settings window appears, flip the switches to No on all settings and click Accept. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/c88d3a50-9f85-4cb1-a926-4c7599b98358)
+
 <p>
   We will need to install Wireshark to start inspecting network traffic. Go to the Microsoft Edge browser. When prompted to sign in into Microsoft Edge, click on Start without your data. Click on Continue without this data. Click on Confirm and continue. Finally, click on Confirm and start browsing.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/1c4106f9-d2b9-4890-946b-bbdc630b0cbe)
+
 <p>
   Search "wireshark download" on the browser search bar and go to the Wireshark - Download link.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ef6ec579-806c-4858-97ec-d05b4ec89b84)
+
 <p>
   In the Wireshark website download page, click on Windows x64 Installer. Once the Wireshark download executive has downloaded, open the file to begin the setup wizard. 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/b20933ba-ddca-4cc2-af10-770e8b8a9a0e)
+
 <p>
   We will use the default options provided by the setup wizard. Once the installation has finished, navigate to the Wireshark app using the the Windows VM search bar. 
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/f86ee9ec-887b-4e16-82ff-b5571dd700af)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/d1fcebb0-7739-4bcf-ac71-cf564963be5a)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  Double-click Ethernet to start observing the VM's network traffic. 
+  In Wireshark, double-click Ethernet to start observing the VM's network traffic. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9f0a832c-ff11-4ba2-9319-45bb45b3daa4)
+
 <p>
   We should begin to see the various network traffic occurring while we are in our remote desktop connection. We will start by filtering for only ICMP traffic by entering "icmp" in the display filter. 
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/3bd29b79-796d-4514-9f9a-65208e6ad5d0)
+
 <p>
   We see that there is currently no ICMP traffic being sent through the virtual network. To prompt ICMP connections, we will use the ping command. Search "powershell" and open Powershell.
 </p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/94478d26-c5a7-431b-8a73-7325eaf6ee11)
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
-<p>
-  We will start by pinging our Ubuntu VM using its private IP address. To find it, from the Azure Portal home page  , navigate to Virtual machines and select VM2.
+  We will start by pinging our Ubuntu VM using its private IP address. To find it, from the Azure Portal home page  , navigate to Virtual machines and select VM2. Identify our Ubuntu VM's private IP address.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/86f1c451-62aa-43dd-a689-3f1f407e2254)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/4ba278e8-eb68-4deb-8a78-028e76bbd364)
+
 <p>
   After identifying our Ubuntu VM's private address, perform the ping command on this address using the Windows VM's Powershell. In this tutorial, we will enter the command "ping 10.0.0.5".
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/4db03148-fb91-445c-a14f-92170f1eb364)
+
 <p>
   We see that the our Windows VM was successfully able to ping our Ubuntu VM. Inside Wireshark, we are able to observe the ICMP traffic between the two VMs. We see the four ICMP requests sent by our Windows VM and the four ICMP replies following each ICMP requests coming from our Ubuntu VM. With this, we are able to confirm network connectivity between the two VMs.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/9bf04c03-60c8-45e5-9e80-fe80f93cb7d2)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/18a3c511-60a2-4bad-9702-157dfc510075)
+
 <p>
   Now, we will try pinging google.com from our Windows VM. Inside Powershell, enter the command "ping www.google.com -4". The "-4" flag will force the command to use google.com's IPv4 address.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p> 
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/b35a784d-9e98-4ce7-9c3c-06f33e0bd359)
+
 <p>
   We see the the ping commands were successful. Inside Wireshark, we can observe the the ICMP requests of our Window's VM being sent to google.com's IPv4 address, as well as google.com's ICMP replies directly after each ICMP requests. With this, we can confirm network connectivity between our Windows VM and google.com.
 </p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/18f4b54f-1be5-49db-8759-9149a5eb9510)
+
+![image](https://github.com/marbienjimeno/azure-network-protocols/assets/29347863/ecaf54e2-8130-42b3-a815-34fc3aa8ced5)
+
 <p>
   Now, we will configure the Network Security Group of our Ubuntu VM to disable incoming ICMP traffic. We will start by sending continuous pings from our Windows VM to the Ubuntu VM. In Powershell, enter the command "ping 10.0.0.5 -t". The "-t" flag will tell the Windows VM to continuously send pings. 
 </p>
